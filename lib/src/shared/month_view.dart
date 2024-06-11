@@ -19,6 +19,7 @@ class MonthView extends StatelessWidget {
     required this.onChanged,
     required this.minDate,
     required this.maxDate,
+    required this.disabledDates,
     required this.enabledCellsTextStyle,
     required this.enabledCellsDecoration,
     required this.disabledCellsTextStyle,
@@ -109,6 +110,8 @@ class MonthView extends StatelessWidget {
 
   /// The radius of the ink splash.
   final double? splashRadius;
+
+  final List<DateTime> disabledDates;
 
   @override
   Widget build(BuildContext context) {

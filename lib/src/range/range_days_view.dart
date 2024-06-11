@@ -20,6 +20,7 @@ class RangeDaysView extends StatelessWidget {
     required this.currentDate,
     required this.minDate,
     required this.maxDate,
+    required this.disabledDates,
     required this.selectedStartDate,
     required this.selectedEndDate,
     required this.onStartDateChanged,
@@ -156,6 +157,8 @@ class RangeDaysView extends StatelessWidget {
 
   /// The radius of the ink splash.
   final double? splashRadius;
+  
+  final List<DateTime> disabledDates;
 
   /// Builds widgets showing abbreviated days of week. The first widget in the
   /// returned list corresponds to the first day of week for the current locale.
@@ -241,7 +244,7 @@ class RangeDaysView extends StatelessWidget {
       } else {
         final DateTime dayToBuild = DateTime(year, month, day);
         final bool isDisabled =
-            dayToBuild.isAfter(_maxDate) || dayToBuild.isBefore(_minDate);
+            dayToBuild.isAfter(_maxDate) || dayToBuild.isBefore(_minDate) || disabledDates.contains(dayToBuild);
 
         final isRangeSelected =
             selectedStartDateOnly != null && selectedEndDateOnly != null;

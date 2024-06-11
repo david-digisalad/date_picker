@@ -54,6 +54,7 @@ class DatePicker extends StatefulWidget {
     super.key,
     required this.maxDate,
     required this.minDate,
+    required this.disabledDates,
     this.onDateSelected,
     this.initialDate,
     this.selectedDate,
@@ -224,6 +225,8 @@ class DatePicker extends StatefulWidget {
   /// defaults to `Next Day/Month/Year` according to picker type.
   final String? nextPageSemanticLabel;
 
+  final List<DateTime> disabledDates;
+
   @override
   State<DatePicker> createState() => _DatePickerState();
 }
@@ -281,6 +284,7 @@ class _DatePickerState extends State<DatePicker> {
                 DateUtils.dateOnly(widget.currentDate ?? DateTime.now()),
             maxDate: DateUtils.dateOnly(widget.maxDate),
             minDate: DateUtils.dateOnly(widget.minDate),
+            disabledDates: widget.disabledDates,
             daysOfTheWeekTextStyle: widget.daysOfTheWeekTextStyle,
             enabledCellsTextStyle: widget.enabledCellsTextStyle,
             enabledCellsDecoration: widget.enabledCellsDecoration,
@@ -323,6 +327,7 @@ class _DatePickerState extends State<DatePicker> {
                 DateUtils.dateOnly(widget.currentDate ?? DateTime.now()),
             maxDate: DateUtils.dateOnly(widget.maxDate),
             minDate: DateUtils.dateOnly(widget.minDate),
+            disabledDates: widget.disabledDates,
             currentDateDecoration: widget.currentDateDecoration,
             currentDateTextStyle: widget.currentDateTextStyle,
             disabledCellsDecoration: widget.disabledCellsDecoration,

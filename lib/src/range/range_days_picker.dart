@@ -11,6 +11,7 @@ class RangeDaysPicker extends StatefulWidget {
     super.key,
     required this.minDate,
     required this.maxDate,
+    required this.disabledDates,
     this.initialDate,
     this.currentDate,
     this.selectedStartDate,
@@ -213,6 +214,8 @@ class RangeDaysPicker extends StatefulWidget {
 
   /// Semantic label for button to go to the next page
   final String? nextPageSemanticLabel;
+
+  final List<DateTime> disabledDates;
 
   @override
   State<RangeDaysPicker> createState() => __RangeDaysPickerState();
@@ -462,6 +465,7 @@ class __RangeDaysPickerState extends State<RangeDaysPicker> {
                         widget.currentDate ?? DateTime.now()),
                     minDate: DateUtils.dateOnly(widget.minDate),
                     maxDate: DateUtils.dateOnly(widget.maxDate),
+                    disabledDates: widget.disabledDates,
                     displayedMonth: month,
                     selectedEndDate: widget.selectedEndDate == null
                         ? null

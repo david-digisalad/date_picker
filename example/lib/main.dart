@@ -32,8 +32,9 @@ class MyApp extends StatelessWidget {
                     height: 400,
                     child: RangeDatePicker(
                       centerLeadingDate: true,
-                      minDate: DateTime(2020, 10, 10),
+                      minDate: DateTime(2024, 4, 10),
                       maxDate: DateTime(2024, 10, 30),
+                      disabledDates: [DateTime(2024, 6, 14), DateTime(2024, 6, 17), DateTime(2024, 6, 26)],
                     ),
                   ),
                 ],

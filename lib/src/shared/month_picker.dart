@@ -49,6 +49,7 @@ class MonthPicker extends StatefulWidget {
     super.key,
     required this.minDate,
     required this.maxDate,
+    required this.disabledDates,
     this.initialDate,
     this.currentDate,
     this.selectedDate,
@@ -225,6 +226,8 @@ class MonthPicker extends StatefulWidget {
 
   /// Semantic label for button to go to the next page.
   final String? nextPageSemanticLabel;
+
+  final List<DateTime> disabledDates;
 
   @override
   State<MonthPicker> createState() => _MonthPickerState();
@@ -449,6 +452,7 @@ class _MonthPickerState extends State<MonthPicker> {
                         : DateUtilsX.monthOnly(DateTime.now()),
                     maxDate: DateUtilsX.monthOnly(widget.maxDate),
                     minDate: DateUtilsX.monthOnly(widget.minDate),
+                    disabledDates: widget.disabledDates,
                     displayedDate: year,
                     selectedDate: _selectedDate,
                     enabledCellsDecoration: enabledCellsDecoration,

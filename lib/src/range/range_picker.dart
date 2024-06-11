@@ -53,6 +53,7 @@ class RangeDatePicker extends StatefulWidget {
     super.key,
     required this.maxDate,
     required this.minDate,
+    required this.disabledDates,
     this.onRangeSelected,
     this.currentDate,
     this.initialDate,
@@ -250,6 +251,8 @@ class RangeDatePicker extends StatefulWidget {
   /// defaults to `Next Day/Month/Year` according to picker type.
   final String? nextPageSemanticLabel;
 
+  final List<DateTime> disabledDates;
+
   @override
   State<RangeDatePicker> createState() => _RangeDatePickerState();
 }
@@ -317,6 +320,7 @@ class _RangeDatePickerState extends State<RangeDatePicker> {
             selectedStartDate: _selectedStartDate,
             maxDate: DateUtils.dateOnly(widget.maxDate),
             minDate: DateUtils.dateOnly(widget.minDate),
+            disabledDates: widget.disabledDates,
             daysOfTheWeekTextStyle: widget.daysOfTheWeekTextStyle,
             enabledCellsTextStyle: widget.enabledCellsTextStyle,
             enabledCellsDecoration: widget.enabledCellsDecoration,
@@ -373,6 +377,7 @@ class _RangeDatePickerState extends State<RangeDatePicker> {
             selectedDate: null,
             maxDate: DateUtils.dateOnly(widget.maxDate),
             minDate: DateUtils.dateOnly(widget.minDate),
+            disabledDates: widget.disabledDates,
             currentDate:
                 DateUtils.dateOnly(widget.currentDate ?? DateTime.now()),
             currentDateDecoration: widget.currentDateDecoration,

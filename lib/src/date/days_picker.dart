@@ -49,6 +49,7 @@ class DaysPicker extends StatefulWidget {
     super.key,
     required this.maxDate,
     required this.minDate,
+    required this.disabledDates,
     this.initialDate,
     this.currentDate,
     this.selectedDate,
@@ -233,6 +234,8 @@ class DaysPicker extends StatefulWidget {
 
   /// Semantic label for button to go to the next page.
   final String? nextPageSemanticLabel;
+
+  final List<DateTime> disabledDates;
 
   @override
   State<DaysPicker> createState() => _DaysPickerState();
@@ -474,6 +477,7 @@ class _DaysPickerState extends State<DaysPicker> {
                         widget.currentDate ?? DateTime.now()),
                     maxDate: DateUtils.dateOnly(widget.maxDate),
                     minDate: DateUtils.dateOnly(widget.minDate),
+                    disabledDates: widget.disabledDates,
                     displayedMonth: month,
                     selectedDate: _selectedDate,
                     daysOfTheWeekTextStyle: daysOfTheWeekTextStyle,
